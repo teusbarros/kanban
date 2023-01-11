@@ -1,0 +1,9 @@
+$palette: (
+    white          : #eee,
+    blue           : #000463,
+);
+
+.export-button{
+    background-color: map-get($palette,white);
+    color: map-get($palette,blue);
+}
