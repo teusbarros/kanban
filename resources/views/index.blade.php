@@ -10,6 +10,7 @@
     </head>
 
     <body>
+        <input type="hidden" name="token" id="token" value="{{env('API_TOKEN')}}">
         <div id="app">
             <Board/>
         </div>

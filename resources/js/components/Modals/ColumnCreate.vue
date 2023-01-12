@@ -1,10 +1,13 @@
 <template>
     <modal name="column-create">
-        <form action="" class="form-basic">
+        <form @submit.prevent class="form-basic">
             <h4>NEW COLUMN</h4>
+            
             <hr>
+            
             <label for="title">Title *</label>
             <input type="text" name="title" v-model="title" placeholder="Title" required>
+            
             <div class="footer">
                 <font-awesome-icon icon="plus-circle" class="icon" @click="storePost" />
             </div>            
@@ -37,11 +40,6 @@ export default {
                 
                 this.hide();
                 this.$emit('updated');
-            })
-            .catch(error =>{
-                if (error.response?.data) {
-                    //validationErrors.value = error.response.data.errors;
-                }
             })
     }
     },

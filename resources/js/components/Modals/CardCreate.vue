@@ -2,11 +2,15 @@
     <modal :name="'card-create-' + card.column_id"  @closed="clearData">
         <form action="" class="form-basic">
             <h4>NEW CARD</h4>
+            
             <hr>
+            
             <label for="title">Title *</label>
             <input type="text" name="title" v-model="card.title" placeholder="Title" required>
+            
             <label for="title">Description *</label>
             <input type="text" name="description" v-model="card.description" placeholder="Description" required>
+            
             <div class="footer">
                 <font-awesome-icon v-if="card.id == null" icon="plus-circle" class="icon" @click="storePost" />
                 <font-awesome-icon v-else icon="plus-circle" class="icon" @click="updatePost" />
@@ -32,7 +36,6 @@ export default {
             this.$modal.hide('card-create-' + this.card.column_id);
         },
         storePost() {
-            console.log('criando um novo');
 
             if (this.card.title == '' || this.card.description == '') {
                 return;
@@ -42,14 +45,8 @@ export default {
                 this.hide();
                 this.$emit('updated');
             })
-            .catch(error =>{
-                if (error.response?.data) {
-                    //validationErrors.value = error.response.data.errors;
-                }
-            })
         },
         updatePost() {
-            console.log('atualizando');
             if (this.card.title == '' || this.card.description == '') {
                 return;
             }
@@ -57,11 +54,6 @@ export default {
             .then(response => {
                 this.hide();
                 this.$emit('updated');
-            })
-            .catch(error =>{
-                if (error.response?.data) {
-                    //validationErrors.value = error.response.data.errors;
-                }
             })
         },
         clearData(){

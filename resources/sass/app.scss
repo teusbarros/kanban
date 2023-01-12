@@ -8,9 +8,11 @@ $palette: (
     jeans-blur     : rgba(97, 182, 255, 0.7),
     black          : black,
 );
+
 body{
     background-color: map-get($palette,azure);
 }
+
 .export-button{
     background-color: map-get($palette,white);
     color: map-get($palette,jeans);
@@ -26,37 +28,46 @@ body{
     padding: 0.6em 10px;
     box-shadow: 3px 7px map-get($palette,jeans-blur);
 }
+
 .cards{
     overflow-y: auto;
     max-height: 85%;
 }
+
 .footer{
     margin-top: 15px;
     text-align: center;
 }
+
 .header{
     display: inline-block;
     font-size: 22px;
     width: 100%;
 }
+
 .header > span {
     color: map-get($palette,crayola);
 }
+
 .float-right{
     float: right !important;
 }
+
 .float-center{
     text-align: center;
 }
+
 .icon{
     font-size: 18px !important;
     align-items: center;
     color: map-get($palette,jeans-blur);
 }
+
 .icon:hover{
     transform: scale(1.4);
     color: map-get($palette,crayola);
 }
+
 .card{
     background-color: map-get($palette,azure);
     padding: 0.5rem;
@@ -67,20 +78,17 @@ body{
     cursor: pointer;
     color: map-get($palette,crayola);
 }
+
 .card:hover{
     box-shadow: 2px 3px 0 map-get($palette,jeans-blur);
 
 }
 
-
 button.add-column{
     min-width: 20rem;
     max-height: 2rem;
     padding: 0.6em 10px;
-    //padding: 0.5rem;
-    //margin: 1rem;
-    margin: 2rem 1.2rem;
-
+    margin: 2rem 1.2rem 0 1.2rem;
     background-color: map-get($palette,azure);
     border: 1px solid map-get($palette,jeans-blur);
     color: map-get($palette,crayola);
@@ -88,11 +96,13 @@ button.add-column{
     box-shadow: 0 1px 0 map-get($palette,jeans-blur);
 
 }
+
 button.add-column:hover{
     transform: scale(1.1);
     box-shadow: 2px 3px 0 map-get($palette,jeans-blur);
 
 }
+
 .form-basic{
     color: map-get($palette,crayola) !important;
     padding: 12px 20px;
@@ -100,4 +110,15 @@ button.add-column:hover{
 
 .error{
     border-color: red !important;
+}
+
+.on-drag{
+    background-color: map-get($palette,crayola) !important;
+    color: map-get($palette,white) !important;
+    z-index: 10;;
+}
+
+.columns{
+    display: flex;
+    overflow-x: auto;
 }

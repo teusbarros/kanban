@@ -7,11 +7,6 @@
 <script>
     export default {
         props: ['id', 'title'],
-        data(){
-            return {
-                draggable: true
-            }
-        },
         methods:{
             editCard(){
                 this.$emit('toedit');

@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::apiResource('cards', \App\Http\Controllers\Api\CardController::class);
     Route::apiResource('columns', \App\Http\Controllers\Api\ColumnController::class);
+    Route::get('sql', [\App\Http\Controllers\Api\ColumnController::class, 'sql']);
+    
+    Route::apiResource('cards', \App\Http\Controllers\Api\CardController::class);
+    Route::post('cards-position/{card}', [\App\Http\Controllers\Api\CardController::class, 'update_position']);
 //});
