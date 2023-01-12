@@ -10,20 +10,35 @@ require('./bootstrap');
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+const axios = require('axios');
+global.axios = axios;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import { library } from '@fortawesome/fontawesome-svg-core';
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import { faMinusCircle, faPlusCircle, faSave } from '@fortawesome/free-solid-svg-icons';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+import VModal from 'vue-js-modal/dist/index.nocss.js'
+import 'vue-js-modal/dist/styles.css'
+
+
+Vue.use(VueSweetalert2);
+Vue.use(VModal);
+Vue.component('Board', require('./components/Board.vue').default);
+Vue.component('Column', require('./components/Column.vue').default);
+Vue.component('ColumnCreate', require('./components/Modals/ColumnCreate.vue').default);
+Vue.component('Card', require('./components/Card.vue').default);
+Vue.component('CardCreate', require('./components/Modals/CardCreate.vue').default);
+
+library.add(faMinusCircle);
+library.add(faPlusCircle);
+library.add(faSave);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

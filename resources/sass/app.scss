@@ -1,9 +1,103 @@
 $palette: (
-    white          : #eee,
-    blue           : #000463,
+    beige          : rgb(239, 239, 239),
+    azure          : #E5F9FD,
+    white          : rgb(255, 255, 255),
+    cian           : #B8F3FF,
+    jeans          : #61B6FF,
+    crayola        : #0763D3,
+    jeans-blur     : rgba(97, 182, 255, 0.7),
+    black          : black,
 );
-
+body{
+    background-color: map-get($palette,azure);
+}
 .export-button{
     background-color: map-get($palette,white);
-    color: map-get($palette,blue);
+    color: map-get($palette,jeans);
+}
+
+.column{
+    margin: 2rem 1.2rem;
+    background-color: map-get($palette, white);
+    color: map-get($palette,black);
+    border-radius: 5px;
+    min-width: 18rem;
+    max-height: 80vh;
+    padding: 0.6em 10px;
+    box-shadow: 3px 7px map-get($palette,jeans-blur);
+}
+.cards{
+    overflow-y: auto;
+    max-height: 85%;
+}
+.footer{
+    margin-top: 15px;
+    text-align: center;
+}
+.header{
+    display: inline-block;
+    font-size: 22px;
+    width: 100%;
+}
+.header > span {
+    color: map-get($palette,crayola);
+}
+.float-right{
+    float: right !important;
+}
+.float-center{
+    text-align: center;
+}
+.icon{
+    font-size: 18px !important;
+    align-items: center;
+    color: map-get($palette,jeans-blur);
+}
+.icon:hover{
+    transform: scale(1.4);
+    color: map-get($palette,crayola);
+}
+.card{
+    background-color: map-get($palette,azure);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 0 map-get($palette,jeans-blur);
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: map-get($palette,crayola);
+}
+.card:hover{
+    box-shadow: 2px 3px 0 map-get($palette,jeans-blur);
+
+}
+
+
+button.add-column{
+    min-width: 20rem;
+    max-height: 2rem;
+    padding: 0.6em 10px;
+    //padding: 0.5rem;
+    //margin: 1rem;
+    margin: 2rem 1.2rem;
+
+    background-color: map-get($palette,azure);
+    border: 1px solid map-get($palette,jeans-blur);
+    color: map-get($palette,crayola);
+    cursor: pointer;
+    box-shadow: 0 1px 0 map-get($palette,jeans-blur);
+
+}
+button.add-column:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 3px 0 map-get($palette,jeans-blur);
+
+}
+.form-basic{
+    color: map-get($palette,crayola) !important;
+    padding: 12px 20px;
+}
+
+.error{
+    border-color: red !important;
 }

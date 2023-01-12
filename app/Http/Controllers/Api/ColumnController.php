@@ -33,6 +33,10 @@ class ColumnController extends Controller
     }
     public function destroy(Column $column)
     {
+        $column->cards->map( function ($card)
+        {
+            $card->delete();
+        });
         $column->delete();
 
         return response()->noContent();

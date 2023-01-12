@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 //Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('cards', \App\Http\Controllers\Api\CardController::class);
-    Route::get('columns', [\App\Http\Controllers\Api\ColumnController::class, 'index']);
+    Route::apiResource('columns', \App\Http\Controllers\Api\ColumnController::class);
 //});

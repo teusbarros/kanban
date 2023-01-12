@@ -14,7 +14,7 @@ class CardFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word(),
+            'title' => ucfirst($this->faker->word()),
             'description' => $this->faker->text(),
             'column_id' => rand(1, 3),
         ];

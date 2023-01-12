@@ -14,16 +14,19 @@ class CardController extends Controller
     {
         $date = $request->date ?? null;
         $status = $request->status ?? null;
+        $column_id = $request->column_id ?? null;
 
-        $card = Card::when($date, function ($query) use ($date) {
-            $query->where('created_at', $date);
-        })->when($status, function ($query) use ($status) {
-            if($status == 1){
-                $query->whereNull('deleted_at');
-            }else {
-                $query->whereNotNull('deleted_at');
-            }
-        })->get();
+        $card = Card::when($column_id, function ($query) use ($column_id) {
+                $query->where('column_id', $column_id);
+            })->when($date, function ($query) use ($date) {
+                $query->where('created_at', $date);
+            })->when($status, function ($query) use ($status) {
+                if($status == 1){
+                    $query->whereNull('deleted_at');
+                }else {
+                    $query->whereNotNull('deleted_at');
+                }
+            })->orderBy('order')->get();
 
         return CardResource::collection($card);
     }
